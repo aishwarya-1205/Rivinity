@@ -10,13 +10,13 @@ const Navbar = () => {
     const navLinks = ['Platform', 'Capabilities', 'Developers', 'Learn', 'Research', 'About'];
 
     return (
-        <div className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[90%] max-w-[90rem]`}>
+        <div className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-7xl`}>
 
             {/* The Capsule */}
             <div className="relative group">
 
                 {/* Animated Border Glow (The "Scanner") - Enhanced */}
-                <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-transparent via-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-700 animate-border-flow" />
+                <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-transparent via-blue-500/30 to-transparent blur-md transition-opacity duration-700 animate-border-flow" />
 
                 {/* Steady Glow for Glass Effect */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 pointer-events-none" />

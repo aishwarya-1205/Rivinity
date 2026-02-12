@@ -43,7 +43,7 @@ const baseRingMaterial = new THREE.MeshBasicMaterial({
 });
 
 const Robot3D = () => {
-  const { viewport } = useThree();
+  const { viewport, size } = useThree();
   const isMobile = viewport.width < 7;
   const isTablet = viewport.width >= 7 && viewport.width < 10;
 
@@ -53,18 +53,42 @@ const Robot3D = () => {
 
   // Responsive settings
   const { scale, position } = useMemo(() => {
-    let scale = 1.2;
-    let position: [number, number, number] = [4.5, 0, 0];
+
+    // Pixel-to-3D conversion
+    // viewport.width is the width of the canvas in 3D units
+    // size.width is the width of the canvas in pixels (window width)
+
+    const maxContentWidth = 1280; // max-w-7xl
+    const contentWidth = Math.min(size.width, maxContentWidth);
+
+    // We want the robot centered in the right half of the content container
+    // Offset from center = contentWidth / 4. User wants it further right -> 0.35
+    const pixelOffset = contentWidth * 0.35;
+
+    // Convert to 3D units
+    const xPos = (pixelOffset / size.width) * viewport.width;
 
     if (isMobile) {
-      scale = 0.5;
-      position = [1.8, 2.0, 0];
-    } else if (isTablet) {
-      scale = 0.8;
-      position = [2.5, 0.5, 0];
+      return {
+        scale: 0.6,
+        position: [0, 1.5, 0] as [number, number, number]
+      };
     }
-    return { scale, position };
-  }, [isMobile, isTablet]);
+
+    if (isTablet) {
+      return {
+        scale: 0.8,
+        position: [xPos, 0.5, 0] as [number, number, number]
+      };
+    }
+
+    // Desktop
+    // STATIC scale allows natural zooming (object gets bigger as viewport shrinks/zooms in)
+    return {
+      scale: 1.35,
+      position: [xPos, 0, 0] as [number, number, number]
+    };
+  }, [isMobile, isTablet, viewport.width, size.width]);
 
   // Smooth mouse tracking
   const targetRotation = useRef(new THREE.Vector2(0, 0));

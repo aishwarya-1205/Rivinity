@@ -5,8 +5,8 @@ const TechShowcase = () => {
     return (
         <section className="py-24 bg-transparent relative overflow-hidden">
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="w-[90%] max-w-[90rem] mx-auto px-6 relative z-10">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
 
                     {/* Left: Content */}
                     <div className="lg:w-1/2">
@@ -45,10 +45,10 @@ const TechShowcase = () => {
                             </div>
                         </div>
 
-                        <div className="flex gap-4">
-                            <div className="px-4 py-2 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 border border-slate-700 font-mono text-sm flex items-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all cursor-pointer">
+                        <div className="flex flex-wrap gap-4">
+                            <div className="px-3 sm:px-4 py-2 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 border border-slate-700 font-mono text-[10px] sm:text-sm flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all cursor-pointer overflow-x-auto whitespace-nowrap max-w-full">
                                 <span className="text-green-400 dark:text-green-600 font-bold">$</span> npm install @rivinity/sdk
-                                <Lucide.Copy size={14} className="opacity-50 hover:opacity-100 transition-opacity" />
+                                <Lucide.Copy size={14} className="opacity-50 hover:opacity-100 transition-opacity shrink-0" />
                             </div>
                         </div>
                     </div>
@@ -71,9 +71,9 @@ const TechShowcase = () => {
                             </div>
 
                             {/* Code Content */}
-                            <div className="p-6 overflow-x-auto custom-scrollbar">
-                                <div className="flex font-mono text-xs md:text-[13px] leading-relaxed text-slate-300">
-                                    <div className="flex flex-col text-slate-700 select-none pr-4 text-right border-r border-slate-800 mr-4">
+                            <div className="p-4 sm:p-6 overflow-x-auto custom-scrollbar">
+                                <div className="flex font-mono text-[10px] sm:text-xs md:text-[13px] leading-relaxed text-slate-300">
+                                    <div className="flex flex-col text-slate-700 select-none pr-3 sm:pr-4 text-right border-r border-slate-800 mr-3 sm:mr-4">
                                         {Array.from({ length: 16 }).map((_, i) => <span key={i}>{i + 1}</span>)}
                                     </div>
                                     <div className="flex-1 whitespace-pre">

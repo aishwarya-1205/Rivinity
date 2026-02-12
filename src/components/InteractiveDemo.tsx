@@ -69,7 +69,7 @@ const InteractiveDemo = () => {
 
     return (
         <section ref={sectionRef} className="py-24 bg-transparent relative overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className={`text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-4 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                         See Intelligence <br />

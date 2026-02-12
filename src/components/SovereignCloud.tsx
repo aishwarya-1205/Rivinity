@@ -21,12 +21,12 @@ const SovereignCloud = () => {
                 </svg>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
 
                     {/* Visual Side */}
                     <div className={`lg:w-1/2 relative transition-all duration-1000 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
-                        <div className="relative w-full aspect-square max-w-md mx-auto">
+                        <div className="relative w-full aspect-square max-w-md mx-auto lg:mx-0">
                             {/* Central Shield */}
                             <div className="absolute inset-0 flex items-center justify-center z-20">
                                 <div className="w-48 h-56 bg-gradient-to-br from-blue-600/90 to-violet-700/90 backdrop-blur-xl rounded-3xl shadow-2xl flex items-center justify-center transform hover:scale-105 transition-transform duration-500 animate-float border border-white/20">

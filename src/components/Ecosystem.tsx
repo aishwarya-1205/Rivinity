@@ -10,7 +10,7 @@ const Ecosystem = () => {
 
     return (
         <section ref={sectionRef} className="py-24 bg-transparent transition-colors duration-300">
-            <div className="container mx-auto px-6">
+            <div className="w-[95%] max-w-7xl mx-auto px-6">
                 <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
 
                     {/* Visual Side - Network Graph */}

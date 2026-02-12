@@ -29,7 +29,7 @@ const IndianLLM = () => {
             {/* Background Sliding Text - "The Voice of India" */}
             <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none flex flex-col justify-center space-y-12 select-none overflow-hidden">
                 <motion.div
-                    className="flex gap-8 whitespace-nowrap text-6xl font-bold font-display"
+                    className="flex gap-8 whitespace-nowrap text-4xl sm:text-6xl font-bold font-display"
                     animate={{ x: [0, -1000] }}
                     transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
                 >
@@ -38,7 +38,7 @@ const IndianLLM = () => {
                     ))}
                 </motion.div>
                 <motion.div
-                    className="flex gap-8 whitespace-nowrap text-6xl font-bold font-display"
+                    className="flex gap-8 whitespace-nowrap text-4xl sm:text-6xl font-bold font-display"
                     animate={{ x: [-1000, 0] }}
                     transition={{ repeat: Infinity, duration: 45, ease: "linear" }}
                 >
@@ -49,7 +49,7 @@ const IndianLLM = () => {
             </div>
 
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16 max-w-3xl mx-auto relative">
 
                     {/* Animated Waveform behind Headline */}
@@ -67,7 +67,7 @@ const IndianLLM = () => {
                         ))}
                     </div>
 
-                    <h2 className={`text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-10`}>
+                    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-10`}>
                         Speaks Your Language. <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-pink-500 animate-shimmer">
                             Literally.
@@ -171,10 +171,10 @@ const LanguageReadout = ({ languages }: { languages: { name: string, script: str
                     className="absolute inset-x-0"
                 >
                     <div className="inline-block relative">
-                        <h3 className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 dark:from-slate-800 dark:to-slate-700 opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-sm select-none whitespace-nowrap">
+                        <h3 className="text-4xl sm:text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400 dark:from-slate-800 dark:to-slate-700 opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-sm select-none whitespace-nowrap">
                             {currentLang.script}
                         </h3>
-                        <h3 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-pink-500 to-blue-600 animate-shimmer bg-[length:200%_auto] relative z-10 whitespace-nowrap">
+                        <h3 className="text-3xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-pink-500 to-blue-600 animate-shimmer bg-[length:200%_auto] relative z-10 whitespace-nowrap">
                             {currentLang.script}
                         </h3>
                     </div>

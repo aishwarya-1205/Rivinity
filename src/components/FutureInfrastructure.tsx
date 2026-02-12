@@ -173,7 +173,7 @@ const FutureInfrastructure = () => {
             {/* Cinematic Overlay Gradient - Adjusted for transparency */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/80 dark:from-slate-900/80 dark:via-transparent dark:to-slate-900/80 z-0 pointer-events-none"></div>
 
-            <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+            <div className="w-[90%] max-w-[90rem] mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
 
                 {/* Left: Text Content */}
                 <div className="text-left space-y-8">

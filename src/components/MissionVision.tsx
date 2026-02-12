@@ -10,8 +10,8 @@ const MissionVision = () => {
 
     return (
         <section ref={sectionRef} className="py-24 bg-transparent transition-colors duration-300 relative overflow-hidden">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-[95%] max-w-7xl mx-auto px-6">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                     {/* Content */}
                     <div
                         className={`lg:w-1/2 space-y-8 transition-all duration-500 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'} ${isFocused ? 'blur-sm opacity-50' : 'opacity-100'}`}
@@ -42,7 +42,7 @@ const MissionVision = () => {
                     </div>
 
                     {/* Visual - Neural Network Visualization */}
-                    <div className={`lg:w-1/2 relative min-h-[400px] flex items-center justify-center transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
+                    <div className={`lg:w-1/2 relative min-h-[400px] flex items-center justify-center lg:justify-end lg:-mr-1 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
                         <div className={`relative w-full max-w-md transition-all duration-500 ${isFocused ? 'scale-95 opacity-80 blur-[2px]' : 'scale-100 opacity-100'}`}>
                             <NeuralNetworkVisualization />
                         </div>

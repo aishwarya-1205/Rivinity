@@ -78,7 +78,7 @@ const Hero = () => {
     >
       {/* 3D Robot - Local to Hero Section */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+        <Canvas camera={{ position: [0, 0, 8], fov: 60 }} dpr={1}>
           <ambientLight intensity={theme === "dark" ? 2 : 2.5} />
           <directionalLight position={[5, 10, 5]} intensity={4} />
           <pointLight position={[-5, 5, 5]} intensity={2} color="#3b82f6" />
@@ -86,7 +86,7 @@ const Hero = () => {
         </Canvas>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
+      <div className="relative z-10 w-[95%] max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="text-left flex flex-col gap-6 items-start z-20">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 animate-fade-in-up will-change-transform">

@@ -4,7 +4,7 @@ import { Fingerprint, Cpu, Network, Zap, Lock, Layers, ArrowRight } from 'lucide
 const OSArchitecture = () => {
     return (
         <section className="py-24 bg-transparent relative overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-[90%] max-w-[90rem] mx-auto px-6 relative z-10">
 
                 {/* Header */}
                 <div className="text-center mb-16">

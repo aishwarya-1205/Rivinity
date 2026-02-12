@@ -85,12 +85,12 @@ const FinalCTA = () => {
     };
 
     return (
-        <section ref={sectionRef} className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-slate-950 py-20">
+        <section ref={sectionRef} className="relative min-h-[850px] flex flex-col items-center justify-center bg-white dark:bg-slate-950 py-32 lg:py-40">
 
             {/* Backgrounds */}
             <NeuralSphere />
 
-            <div className="relative z-10 container mx-auto px-6 text-center">
+            <div className="relative z-10 w-[90%] max-w-[90rem] mx-auto px-6 text-center">
 
                 <motion.div
                     variants={containerVariants}

@@ -17,7 +17,7 @@ const AIPresenceLayer = () => {
 
         // Configuration
         const config = {
-            nodeCount: 60,
+            nodeCount: 40,
             connectionDistance: 150,
             cursorInfluenceRadius: 250,
             baseOpacity: 0.05,
@@ -309,8 +309,8 @@ const AIPresenceLayer = () => {
 
             <canvas ref={canvasRef} className="absolute inset-0 block" />
 
-            {/* Noise Overlay */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')]"></div>
+            {/* Noise Overlay - Removed for performance */}
+            {/* <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('...')]"></div> */}
         </div>
     );
 };
