@@ -2,6 +2,7 @@ import { MessageCircleCode, AudioWaveform, FileJson, Mic } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { motion, AnimatePresence } from 'framer-motion';
+import { GradientText } from './ui/GradientText';
 
 const IndianLLM = () => {
     const sectionRef = useRef(null);
@@ -69,9 +70,9 @@ const IndianLLM = () => {
 
                     <h2 className={`text-3xl sm:text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-10`}>
                         Speaks Your Language. <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-pink-500 animate-shimmer">
+                        <GradientText colors={["#2563eb", "#8b5cf6", "#ec4899", "#2563eb"]} animationSpeed={4}>
                             Literally.
-                        </span>
+                        </GradientText>
                     </h2>
                     <p className={`text-lg text-slate-600 dark:text-slate-300 transition-all duration-700 delay-100 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} relative z-10`}>
                         Trained on 2 trillion tokens of Indian language data. BharatAI understands the nuance, context, and dialects of 22+ official languages.

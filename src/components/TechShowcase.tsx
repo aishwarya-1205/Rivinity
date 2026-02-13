@@ -1,5 +1,6 @@
 
 import * as Lucide from 'lucide-react';
+import { TrueFocus } from './ui/TrueFocus';
 
 const TechShowcase = () => {
     return (
@@ -24,25 +25,14 @@ const TechShowcase = () => {
                             Direct access to the neural substrate. Define workflows as code, hook into events, and let the OS handle the orchestration.
                         </p>
 
-                        <div className="space-y-6 mb-10">
-                            <div className="flex items-start gap-4 p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-blue-500/30 transition-colors group backdrop-blur-sm">
-                                <div className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:text-blue-500 transition-colors">
-                                    <Lucide.Code2 size={20} />
-                                </div>
-                                <div>
-                                    <h4 className="text-slate-900 dark:text-white font-bold mb-1">Typed SDKs</h4>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">Full TypeScript support with auto-generated types for your custom workflows.</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-4 p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-violet-500/30 transition-colors group backdrop-blur-sm">
-                                <div className="p-2 rounded-lg bg-violet-500/10 text-violet-600 dark:text-violet-400 group-hover:text-violet-300 transition-colors">
-                                    <Lucide.Workflow size={20} />
-                                </div>
-                                <div>
-                                    <h4 className="text-slate-900 dark:text-white font-bold mb-1">Workflow as Code</h4>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">Define complex multi-agent chains using simple, declarative syntax.</p>
-                                </div>
-                            </div>
+                        <div className="mb-10">
+                            <TrueFocus
+                                items={[
+                                    { title: "Typed SDKs", description: "Full TypeScript support with auto-generated types for your custom workflows." },
+                                    { title: "Workflow as Code", description: "Define complex multi-agent chains using simple, declarative syntax." },
+                                    { title: "Real-time Events", description: "Subscribe to system-wide events with microsecond latency." }
+                                ]}
+                            />
                         </div>
 
                         <div className="flex flex-wrap gap-4">

@@ -34,6 +34,8 @@ const AIPresenceLayer = () => {
         // State
         const mouse = { x: -1000, y: -1000 };
         const nodes: Node[] = [];
+        const accentColorStr = `rgba(${config.accentColor.r}, ${config.accentColor.g}, ${config.accentColor.b}, ${config.baseOpacity})`;
+        const influenceRadiusSq = config.cursorInfluenceRadius * config.cursorInfluenceRadius;
 
         // --- NODES (Background Field) ---
         class Node {
@@ -71,18 +73,19 @@ const AIPresenceLayer = () => {
                 // Core Influence (Repel or Attract based on stage)
                 const dxCore = targetX - coreX;
                 const dyCore = targetY - coreY;
-                const distCore = Math.sqrt(dxCore * dxCore + dyCore * dyCore);
+                const distCoreSq = dxCore * dxCore + dyCore * dyCore;
 
                 // Stage 3 (Network): Attract strongly
                 if (stage > 0.7) {
-                    if (distCore < 500) {
-                        targetX -= dxCore * 0.02 * (stage);
-                        targetY -= dyCore * 0.02 * (stage);
+                    if (distCoreSq < 250000) { // 500^2
+                        const distCore = Math.sqrt(distCoreSq);
+                        targetX -= (dxCore / distCore) * 10 * stage;
+                        targetY -= (dyCore / distCore) * 10 * stage;
                     }
                 }
                 // Stage 1 (Shield): Repel slightly
                 else if (stage > 0.2 && stage < 0.5) {
-                    if (distCore < 200) {
+                    if (distCoreSq < 40000) { // 200^2
                         targetX += dxCore * 0.01;
                         targetY += dyCore * 0.01;
                     }
@@ -91,9 +94,10 @@ const AIPresenceLayer = () => {
                 // Mouse Interaction
                 const dx = mouse.x - targetX;
                 const dy = mouse.y - targetY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
 
-                if (dist < config.cursorInfluenceRadius) {
+                if (distSq < influenceRadiusSq) {
+                    const dist = Math.sqrt(distSq);
                     const force = (config.cursorInfluenceRadius - dist) / config.cursorInfluenceRadius;
                     targetX += dx * force * 0.15;
                     targetY += dy * force * 0.15;
@@ -101,15 +105,12 @@ const AIPresenceLayer = () => {
 
                 this.x += (targetX - this.x) * 0.1;
                 this.y += (targetY - this.y) * 0.1;
-
-                this.draw(ctx!);
             }
 
             draw(ctx: CanvasRenderingContext2D) {
-                ctx.beginPath();
+                // Batching moved to main animate loop for efficiency
+                ctx.moveTo(this.x + this.radius, this.y);
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${config.accentColor.r}, ${config.accentColor.g}, ${config.accentColor.b}, ${config.baseOpacity})`;
-                ctx.fill();
             }
         }
 
@@ -260,7 +261,13 @@ const AIPresenceLayer = () => {
             core.update(evolutionStage);
 
             // Draw Nodes
-            nodes.forEach(node => node.update(time, core.x, core.y, evolutionStage));
+            ctx.beginPath();
+            nodes.forEach(node => {
+                node.update(time, core.x, core.y, evolutionStage);
+                node.draw(ctx);
+            });
+            ctx.fillStyle = accentColorStr;
+            ctx.fill();
 
             // Draw Connections - REMOVED per user request
             // for (let i = 0; i < nodes.length; i++) {

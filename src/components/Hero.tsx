@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useInView } from "framer-motion";
+import { Float } from "@react-three/drei";
+import { useInView, motion } from "framer-motion";
 import Robot3D from "./Robot3D";
 import Magnetic from "./Magnetic";
 import { ArrowRight, Terminal } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
+import { FlickeringGrid } from "./ui/FlickeringGrid";
+import { ShinyText } from "./ui/ShinyText"; // Import ShinyText
+import { GradientText } from "./ui/GradientText";
 
 const Hero = () => {
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const subheadRef = useRef<HTMLParagraphElement>(null);
-  const buttonsRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
 
   const [displayText, setDisplayText] = useState("");
@@ -58,9 +59,6 @@ const Hero = () => {
 
     setTimeout(startScramble, 200);
 
-    // GSAP Entrance Animations (Headline only if needed, or none)
-    // Removed complex GSAP timeline that was causing visibility issues.
-
     return () => clearInterval(interval);
   }, [isInView]);
 
@@ -69,32 +67,70 @@ const Hero = () => {
       ref={containerRef}
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-300 py-20 lg:py-0 px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto"
     >
+      {/* Background: Flickering Grid (The Void Filler) */}
+      <div className="absolute inset-0 z-0">
+        <FlickeringGrid
+          squareSize={3}
+          gridGap={8}
+          color="#3b82f6"
+          maxOpacity={0.15}
+          flickerChance={0.1}
+          className="absolute inset-0 w-full h-full [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]"
+        />
+      </div>
+
       {/* 3D Robot - Local to Hero Section */}
       <div className="absolute pt-10 inset-0 z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 8], fov: 60 }} dpr={2}>
           <ambientLight intensity={theme === "dark" ? 2 : 2.5} />
           <directionalLight position={[5, 10, 5]} intensity={4} />
           <pointLight position={[-5, 5, 5]} intensity={2} color="#3b82f6" />
-          <Robot3D />
+
+          <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+            <Robot3D />
+          </Float>
         </Canvas>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <div className="text-left flex flex-col gap-5 items-start z-20 pt-20 lg:pt-12">
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+              }
+            }
+          }}
+          className="text-left flex flex-col gap-5 items-start z-20 pt-20 lg:pt-12"
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 animate-fade-in-up will-change-transform">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 animate-fade-in-up will-change-transform"
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            <span className="text-xs font-medium text-slate-600 dark:text-slate-300 tracking-wide uppercase">
+            <GradientText colors={["#3b82f6", "#8b5cf6", "#3b82f6"]} animationSpeed={5} className="text-xs font-medium tracking-wide uppercase">
               Rivinity v2.0 Live
-            </span>
-          </div>
+            </GradientText>
+          </motion.div>
 
           {/* Main Headline - Animated */}
-          <h1
-            ref={headlineRef} // Keep ref for GSAP if needed, or remove if GSAP targets it (GSAP doesn't target it in current code)
+          <motion.h1
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-7xl font-display font-bold tracking-tighter text-slate-900 dark:text-white font-mono leading-tight mb-4 min-h-[1.2em]"
           >
             {/* Mobile Layout: Forced Line Break */}
@@ -108,20 +144,30 @@ const Hero = () => {
             </span>
 
             <span className="animate-pulse text-blue-500" aria-hidden="true">_</span>
-          </h1>
+          </motion.h1>
 
-          {/* Subheading */}
-          <p
-            ref={subheadRef}
-            className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300 fill-mode-forwards"
+          {/* Subheading - Enhanced with ShinyText */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            }}
+            className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300 fill-mode-forwards"
           >
-            Orchestrate your entire workflow with one intelligent platform. Not
-            just a chatbot, but a complete neural network for your business.
-          </p>
+            <ShinyText
+              text="Orchestrate your entire workflow with one intelligent platform. Not just a chatbot, but a complete neural network for your business."
+              disabled={false}
+              speed={4}
+              className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed"
+            />
+          </motion.div>
 
           {/* Buttons with Magnetic Effect */}
-          <div
-            ref={buttonsRef}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            }}
             className="w-full flex flex-col sm:flex-row gap-5 justify-center sm:justify-start items-center pt-4 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500 fill-mode-forwards"
           >
             <Magnetic strength={0.3} radius={200}>
@@ -144,8 +190,8 @@ const Hero = () => {
                 <span className="tracking-wide">Explore Tools</span>
               </button>
             </Magnetic>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

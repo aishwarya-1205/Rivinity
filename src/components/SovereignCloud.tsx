@@ -1,6 +1,7 @@
 import { Fingerprint, LockKeyhole, HardDrive, ServerCog, ShieldCheck, Shield } from 'lucide-react';
 import { useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { GradientText } from './ui/GradientText';
 
 const SovereignCloud = () => {
     const sectionRef = useRef(null);
@@ -67,7 +68,9 @@ const SovereignCloud = () => {
 
                         <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight">
                             Your Data Stays <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-violet-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">Within India's Borders.</span>
+                            <GradientText colors={["#3b82f6", "#8b5cf6", "#3b82f6"]} className="drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                Within India's Borders.
+                            </GradientText>
                         </h2>
 
                         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">

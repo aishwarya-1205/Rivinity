@@ -2,6 +2,8 @@ import { FileStack, ScanEye, AudioLines, Database, Globe } from "lucide-react";
 import { useRef } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { motion } from "framer-motion";
+import { PixelTrail } from "./ui/PixelTrail";
+import { GradientText } from "./ui/GradientText";
 
 const BharatDataSagar = () => {
   const sectionRef = useRef(null);
@@ -14,6 +16,8 @@ const BharatDataSagar = () => {
     >
       {/* Background Data Stream Effect */}
       <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.15] pointer-events-none overflow-hidden">
+        <PixelTrail gridSize={60} trailSize={0.4} color="#3b82f6" className="opacity-40" />
+
         <svg
           className="w-full h-full"
           viewBox="0 0 1440 800"
@@ -96,15 +100,17 @@ const BharatDataSagar = () => {
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-slate-900 dark:text-white mb-6 leading-tight">
               Bharat <br />
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
-                Data Sagar
+              <div className="relative inline-block">
+                <GradientText colors={["#3b82f6", "#06b6d4", "#3b82f6"]} animationSpeed={6}>
+                  Data Sagar
+                </GradientText>
                 <motion.div
                   className="absolute bottom-1 left-0 h-[6px] bg-cyan-400 rounded-full opacity-60"
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
                   transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
                 />
-              </span>
+              </div>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg mb-8">
               The world's largest repository of Indian language data. We are

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, Sparkles, LogIn, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
+import { GradientText } from './ui/GradientText';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
     const navLinks = ['Platform', 'Capabilities', 'Developers', 'Learn', 'Research', 'About'];
 
     return (
-        <div className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-7xl`}>
+        <div className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-[85rem]`}>
 
             {/* The Capsule */}
             <div className="relative group">
@@ -34,9 +35,9 @@ const Navbar = () => {
 
                         {/* Text & Status */}
                         <div className="flex flex-col">
-                            <span className="font-mono font-bold text-slate-900 dark:text-white tracking-widest text-base leading-none">
+                            <GradientText className="font-display font-bold text-xl leading-none">
                                 RIVINITY
-                            </span>
+                            </GradientText>
                         </div>
                     </div>
 
