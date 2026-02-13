@@ -22,7 +22,7 @@ const Navbar = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 pointer-events-none" />
 
                 {/* Main Glass Body */}
-                <nav className="relative flex items-center justify-between gap-6 px-6 py-4 rounded-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-black/20 transition-all duration-300">
+                <nav className="relative flex items-center justify-between gap-4 px-4 md:px-6 py-3 md:py-4 rounded-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-black/20 transition-all duration-300">
 
                     {/* LOGO SECTION */}
                     <div className="flex items-center gap-4 pr-6 border-r border-slate-200/50 dark:border-white/5 mr-2">
@@ -56,7 +56,7 @@ const Navbar = () => {
                     </div>
 
                     {/* 3. ACTIONS (Theme Toggle | Login) */}
-                    <div className="flex items-center gap-4 pl-4 border-l border-slate-200/50 dark:border-white/5 ml-2">
+                    <div className="flex items-center gap-3 pl-4 border-l border-slate-200/50 dark:border-white/5 ml-2">
 
                         {/* Theme Toggle (Mini) */}
                         <button
@@ -67,7 +67,7 @@ const Navbar = () => {
                         </button>
 
                         {/* Login Button (CTA) */}
-                        <button className="group/btn relative px-6 py-2.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold tracking-wide overflow-hidden transition-all hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] active:scale-95 flex items-center gap-2">
+                        <button className="hidden sm:flex group/btn relative px-6 py-2.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold tracking-wide overflow-hidden transition-all hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] active:scale-95 items-center gap-2">
                             <span className="relative z-10 flex items-center gap-2">
                                 Login <LogIn size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
                             </span>
@@ -75,10 +75,11 @@ const Navbar = () => {
                             <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/30 dark:to-black/10 opacity-40 group-hover/btn:animate-shine" />
                         </button>
 
-                        {/* Mobile Menu Toggle */}
+                        {/* Mobile Menu Toggle - High Contrast */}
                         <button
-                            className="xl:hidden p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                            className="xl:hidden p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            aria-label="Toggle Menu"
                         >
                             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>

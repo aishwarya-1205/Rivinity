@@ -50,7 +50,7 @@ const PopulationScaleApps = () => {
                     {/* Top Full Width Card - Bharat Agents */}
                     <motion.div
                         variants={cardVariants as any}
-                        className="col-span-full group relative overflow-hidden rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-12 hover:shadow-[0_20px_50px_rgba(249,115,22,0.15)] transition-all duration-500 hover:border-orange-500/30"
+                        className="col-span-full group relative overflow-hidden rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-12 hover:shadow-[0_20px_50px_rgba(249,115,22,0.15)] transition-shadow duration-500 hover:border-orange-500/30 will-change-transform"
                         whileHover={{ scale: 1.01, y: -5 }}
                     >
                         <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
@@ -89,7 +89,7 @@ const PopulationScaleApps = () => {
                     {/* Bottom Left - Bharat Speech */}
                     <motion.div
                         variants={cardVariants as any}
-                        className="group relative overflow-hidden rounded-[2rem] bg-slate-900 border border-slate-800 p-8 min-h-[300px] flex flex-col justify-between hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] transition-all duration-500 hover:border-blue-500/30"
+                        className="group relative overflow-hidden rounded-[2rem] bg-slate-900 border border-slate-800 p-8 min-h-[300px] flex flex-col justify-between hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] transition-shadow duration-500 hover:border-blue-500/30 will-change-transform"
                         whileHover={{ scale: 1.02, y: -5 }}
                     >
                         {/* Audio Visualization Background */}
@@ -119,7 +119,7 @@ const PopulationScaleApps = () => {
                     {/* Bottom Right - Bharat Translate */}
                     <motion.div
                         variants={cardVariants as any}
-                        className="group relative overflow-hidden rounded-[2rem] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 min-h-[300px] flex flex-col justify-between hover:shadow-[0_20px_50px_rgba(168,85,247,0.15)] transition-all duration-500 hover:border-purple-500/30"
+                        className="group relative overflow-hidden rounded-[2rem] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 min-h-[300px] flex flex-col justify-between hover:shadow-[0_20px_50px_rgba(168,85,247,0.15)] transition-shadow duration-500 hover:border-purple-500/30 will-change-transform"
                         whileHover={{ scale: 1.02, y: -5 }}
                     >
                         {/* Network Background */}

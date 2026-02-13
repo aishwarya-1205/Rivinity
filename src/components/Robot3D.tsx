@@ -71,7 +71,9 @@ const Robot3D = () => {
     if (isMobile) {
       return {
         scale: 0.6,
-        position: [0, 1.5, 0] as [number, number, number]
+        // Move to right: x > 0.
+        // Try x = 1.8 to nudge it right.
+        position: [1.8, 1.3, 0] as [number, number, number]
       };
     }
 
@@ -85,7 +87,7 @@ const Robot3D = () => {
     // Desktop
     // STATIC scale allows natural zooming (object gets bigger as viewport shrinks/zooms in)
     return {
-      scale: 1.35,
+      scale: 1.55,
       position: [xPos, 0, 0] as [number, number, number]
     };
   }, [isMobile, isTablet, viewport.width, size.width]);

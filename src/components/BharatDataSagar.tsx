@@ -10,7 +10,7 @@ const BharatDataSagar = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-16 sm:py-20 lg:py-32 bg-transparent transition-colors duration-300 relative overflow-hidden"
+      className="py-0 sm:py-1 lg:py-32 bg-transparent transition-colors duration-300 relative overflow-hidden"
     >
       {/* Background Data Stream Effect */}
       <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.15] pointer-events-none overflow-hidden">
@@ -85,7 +85,7 @@ const BharatDataSagar = () => {
       </div>
 
       <div className="w-[95%] max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-8 lg:gap-16">
           {/* Text Content */}
           <div
             className={`lg:w-1/2 text-left transition-all duration-1000 transform ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"}`}
@@ -133,9 +133,9 @@ const BharatDataSagar = () => {
 
           {/* Visual - The "Interaction Core" */}
           <div
-            className={`lg:w-1/2 relative h-[500px] w-full flex items-center justify-center lg:justify-end lg:-mr-24 transition-all duration-1000 delay-300 transform ${isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}
+            className={`lg:w-1/2 relative h-[350px] sm:h-[500px] w-full flex items-center justify-center lg:justify-end lg:-mr-24 transition-all duration-1000 delay-300 transform ${isVisible ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}
           >
-            <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center mx-auto">
+            <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center mx-auto translate-x-8 sm:translate-x-0">
               {/* Central Core */}
               <div className="absolute w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-blue-600 to-cyan-400 rounded-full blur-[40px] sm:blur-[60px] opacity-40 animate-pulse-slow"></div>
               <div className="relative z-20 w-32 h-32 sm:w-40 sm:h-40 bg-white/10 dark:bg-slate-900/40 backdrop-blur-xl rounded-full border border-blue-500/30 flex items-center justify-center shadow-[0_0_40px_rgba(59,130,246,0.2)]">
